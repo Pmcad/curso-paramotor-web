@@ -10,25 +10,118 @@ body {
   line-height: 1.6;
 }
 
-/* HERO */
-.hero {
-  background: #111;
-  color: white;
-  padding: 2rem 1.5rem;
-}
+/* =====================
+   NAVBAR
+===================== */
 
-.nav {
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 1rem 2.5rem;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
 }
 
-.logo {
-  font-weight: bold;
+.navbar-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 6rem;
+}
+
+.navbar-links a {
+  color: #fff6d5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-contact {
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  background: rgba(255, 193, 7, 0.85); /* amarillo suave */
+  color: #000;
+}
+
+/* BOTÓN CONTACTO */
+
+.btn-contacto {
+  display: inline-block;
+
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #ffe066,
+    #ffb703
+  );
+
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  box-shadow: 0 6px 18px rgba(255, 183, 3, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+.btn-contacto:hover {
+  background: linear-gradient(
+    135deg,
+    #ffec8b,
+    #ffca28
+  );
+  transform: translateY(-1px);
+}
+
+
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 120px;
+
+  padding-top: 120px; /* deja respirar respecto a la navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.45)
+  );
+
+  color: #fff;
 }
 
 .hero-content {
-  margin-top: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
 /* BOTONES */
@@ -42,9 +135,7 @@ body {
   display: inline-block;
 }
 
-.btn-large {
-  margin-top: 1rem;
-}
+
 
 /* SECCIONES */
 section {
@@ -149,3 +240,9 @@ input {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+
+
+
+
+

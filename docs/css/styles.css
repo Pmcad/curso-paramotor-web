@@ -25,36 +25,148 @@ body {
   align-items: center;
 
   padding: 1rem 2.5rem;
-  background: rgba(0, 0, 0, 0.45);
+
+  background: linear-gradient(
+    to right,
+    rgba(158, 210, 252, 0.18) 0%,
+    rgba(158, 210, 252, 0.36) 50%,
+    rgba(158, 210, 252, 0.18) 100%
+  );
+
   backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ---------- LOGO ---------- */
+
 .navbar-logo img {
-  height: 40px;
+  height: 56px;
   width: auto;
   display: block;
+
+  image-rendering: auto;
+  transform: translateZ(0);
+
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
+
+.navbar-logo a:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(255, 183, 3, 0.45));
+}
+
+/* ---------- LINKS ---------- */
 
 .navbar-links {
   display: flex;
   list-style: none;
-  gap: 6rem;
+  gap: 3rem;
 }
 
 .navbar-links a {
-  color: #fff6d5;
-  text-decoration: none;
+  position: relative;
+  display: inline-block;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.90rem;
   font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  color: rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    text-shadow 0.25s ease;
 }
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+  background: rgba(255, 183, 3, 0.85);
+  box-shadow: 0 0 8px rgba(255, 183, 3, 0.45);
+
+  transition: width 0.25s ease, left 0.25s ease;
+}
+
+.navbar-links a:hover {
+  color: rgba(0, 0, 0, 0.95);
+  transform: translateY(-1px);
+
+  text-shadow: 0 2px 8px rgba(255, 183, 3, 0.35);
+  box-shadow:
+    0 2px 6px rgba(255, 183, 3, 0.35),
+    0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ---------- CONTACT ---------- */
 
 .nav-contact {
   padding: 0.5rem 1.2rem;
   border-radius: 20px;
-  background: rgba(255, 193, 7, 0.85); /* amarillo suave */
-  color: #000;
+  background: rgba(255, 193, 7, 0.85);
+  color: #0a0a0a;
 }
 
-/* BOTÓN CONTACTO */
+/* =====================
+   HERO
+===================== */
+
+.hero {
+  min-height: 100vh;
+  padding-top: 120px; /* altura navbar */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("../img/hero.png") center / cover no-repeat;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* =====================
+   BOTÓN CONTACTO (CTA)
+===================== */
 
 .btn-contacto {
   display: inline-block;
@@ -75,7 +187,10 @@ body {
 
   box-shadow: 0 6px 18px rgba(255, 183, 3, 0.35);
 
-  transition: all 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .btn-contacto:hover {
@@ -84,81 +199,47 @@ body {
     #ffec8b,
     #ffca28
   );
+
   transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 22px rgba(255, 183, 3, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 
+/* =====================
+   SECCIONES
+===================== */
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  padding-top: 120px;
-
-  padding-top: 120px; /* deja respirar respecto a la navbar */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.45)
-  );
-
-  color: #fff;
-}
-
-.hero-content {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero h2 {
-  font-size: 1.4rem;
-  font-weight: 400;
-  opacity: 0.9;
-}
-
-/* BOTONES */
-.btn-primary {
-  background: #ff9800;
-  color: black;
-  padding: 0.75rem 1.25rem;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-
-
-/* SECCIONES */
 section {
   padding: 3rem 1.5rem;
 }
 
-h2 {
+section h2 {
   margin-bottom: 1.5rem;
 }
 
-/* GRID */
+/* =====================
+   GRID / CARDS
+===================== */
+
 .grid-4 {
   display: grid;
   gap: 1rem;
 }
 
 .card {
-  background: #f5f5f5;
+
   padding: 1.5rem;
   border-radius: 8px;
+  background: #f5f5f5;
 }
 
-/* TABS */
+/* =====================
+   TABS
+===================== */
+
 .tabs {
   display: flex;
   gap: 1rem;
@@ -167,9 +248,10 @@ h2 {
 
 .tab {
   padding: 0.5rem 1rem;
+
   cursor: pointer;
   border: 1px solid #ccc;
-  background: white;
+  background: #fff;
 }
 
 .tab.active {
@@ -184,12 +266,16 @@ h2 {
   display: block;
 }
 
-/* FAQ */
+/* =====================
+   FAQ
+===================== */
+
 .faq-question {
   width: 100%;
-  text-align: left;
   padding: 1rem;
-  font-weight: bold;
+
+  text-align: left;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -202,7 +288,10 @@ h2 {
   display: block;
 }
 
-/* CTA */
+/* =====================
+   CTA / FORM
+===================== */
+
 .cta {
   background: #eee;
   text-align: center;
@@ -216,19 +305,28 @@ h2 {
   margin: auto;
 }
 
+
+
 input {
   padding: 0.75rem;
 }
 
-/* FOOTER */
+/* =====================
+   FOOTER
+===================== */
+
 .footer {
-  background: #111;
-  color: white;
-  text-align: center;
   padding: 1.5rem;
+  background: #111;
+  color: #fff;
+  text-align: center;
 }
 
-/* RESPONSIVE */
+
+/* =====================
+   RESPONSIVE
+===================== */
+
 @media (min-width: 768px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
@@ -241,8 +339,15 @@ input {
   }
 }
 
+@media (max-width: 1100px) {
+  .navbar {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 
-
-
-
+  .navbar-links a {
+    font-size: 0.85rem;
+    letter-spacing: 0.025em;
+  }
+}
 
